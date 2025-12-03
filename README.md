@@ -4,11 +4,26 @@ A Prettier plugin (and CLI tool) to automatically format TypeScript imports by s
 
 ## Features
 
-- Separates type imports: automatically splits mixed imports into value imports and type imports.
-- Fixes double type imports: cleans up `import type { type X }` to `import type { X }`.
-- Consolidates type imports: converts imports where all named imports are types into a single `import type` declaration.
-- Usage detection: optionally checks how imports are used to detect implicit type-only imports and converts them (slower but more thorough).
-- Caching: caches results to skip processing files that haven't changed.
+This plugin automatically organizes your TypeScript imports to strictly separate type imports from value imports. It splits mixed imports, cleans up redundant `import type { type X }` syntax, and consolidates imports where all members are types into a single `import type` statement.
+
+```ts
+// Before
+import { A, type B } from './mod';
+import type { type C } from './other';
+
+// After
+import { A } from './mod';
+import type { B } from './mod';
+import type { C } from './other';
+```
+
+### Deep Usage Checking
+
+When using the CLI with `--check-usage`, the tool performs a deep analysis of your codebase. It inspects how imported symbols are actually used. If a symbol is only used in type positions (e.g., `interface`, `type` alias, function signatures), it will be converted to a type import even if it wasn't marked as such. This is slower than the default syntax-only mode because it requires loading the full type checker.
+
+### Caching
+
+The CLI tool maintains a cache file named `.fix-type-imports-cache.json` in your project root. This file stores the hash of processed files to skip them in subsequent runs if they haven't changed, significantly speeding up execution for large codebases. You can disable this with `--no-cache` or simply delete the file to reset.
 
 ## Installation
 
@@ -76,39 +91,6 @@ npx fix-type-imports --dir "app"
 
 ```bash
 npx fix-type-imports --check-usage
-```
-
-## What it does
-
-**Mixed Imports:**
-
-```ts
-// Before
-import { A, type B } from './mod';
-
-// After
-import { A } from './mod';
-import type { B } from './mod';
-```
-
-**Double Type Keywords:**
-
-```ts
-// Before
-import type { type A } from './mod';
-
-// After
-import type { A } from './mod';
-```
-
-**All-Type Imports:**
-
-```ts
-// Before
-import { type A, type B } from './mod';
-
-// After
-import type { A, B } from './mod';
 ```
 
 ## Development
