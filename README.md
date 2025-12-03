@@ -4,11 +4,11 @@ A Prettier plugin (and CLI tool) to automatically format TypeScript imports by s
 
 ## Features
 
-- **Separates Type Imports**: Automatically splits mixed imports into value imports and type imports.
-- **Fixes Double Type Imports**: Cleans up `import type { type X }` to `import type { X }`.
-- **Consolidates Type Imports**: Converts imports where all named imports are types into a single `import type` declaration.
-- **Usage Detection**: Optionally checks how imports are used to detect implicit type-only imports and converts them (slower but more thorough).
-- **Caching**: Caches results to skip processing files that haven't changed.
+- Separates type imports: automatically splits mixed imports into value imports and type imports.
+- Fixes double type imports: cleans up `import type { type X }` to `import type { X }`.
+- Consolidates type imports: converts imports where all named imports are types into a single `import type` declaration.
+- Usage detection: optionally checks how imports are used to detect implicit type-only imports and converts them (slower but more thorough).
+- Caching: caches results to skip processing files that haven't changed.
 
 ## Installation
 
