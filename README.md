@@ -23,7 +23,7 @@ When using the CLI with `--check-usage`, the tool performs a deep analysis of yo
 
 ### Caching
 
-The CLI tool maintains a cache file named `.fix-type-imports-cache.json` in your project root. This file stores the hash of processed files to skip them in subsequent runs if they haven't changed, significantly speeding up execution for large codebases. You can disable this with `--no-cache` or simply delete the file to reset.
+The CLI tool maintains a cache file named `.fix-type-imports-cache.json` in your project root. This file stores the hash of processed files to skip them in subsequent runs if they haven't changed, significantly speeding up execution for large codebases. You can disable this with `--no-cache` or simply delete the file to reset. **Make sure to add `.fix-type-imports-cache.json` to your `.gitignore` file.**
 
 ## Installation
 
@@ -68,7 +68,7 @@ npx fix-type-imports [options]
 | Option | Short | Description | Default |
 |--------|-------|-------------|---------|
 | `--help` | `-h` | Show help message | |
-| `--project` | `-p` | Project root path | Current working directory |
+| `--project` | `-p` | Project root path (must contain a `tsconfig.json`) | Current working directory |
 | `--dir` | `-d` | Directory to search for source files | `src` |
 | `--check-usage` | `-c` | Check usage of imports to detect implicit type-only imports (slower) | `false` |
 | `--no-cache` | | Disable caching (always process all files) | `false` |
@@ -99,3 +99,9 @@ npx fix-type-imports --check-usage
 2. Install dependencies: `npm install`.
 3. Run tests: `npm test`.
 4. Run CLI locally: `npm start -- [options]`.
+
+## Links
+
+- [Prettier](https://prettier.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+
