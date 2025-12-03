@@ -150,7 +150,7 @@ export default [
 
 ## Credits
 
-Created by Tiberiu Ichim, vibe-coded with Gemini 3 Preview.
+Created by Tiberiu Ichim, vibe-coded with Gemini 3 Preview using [opencode-cli](https://opencode.ai/).
 
 ## Links
 
