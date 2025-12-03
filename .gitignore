@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+coverage
+.nyc_output
+.fix-type-imports-cache.json
+tests/temp-test-env
