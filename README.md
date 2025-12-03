@@ -144,7 +144,13 @@ export default [
 1. Clone the repository.
 2. Install dependencies: `npm install`.
 3. Run tests: `npm test`.
-4. Run CLI locally: `npm start -- [options]`.
+4. Type check: `npm run type-check`.
+5. Build: `npm run build`.
+6. Run CLI locally: `npm run fix-type-imports -- [options]`.
+
+## Credits
+
+Created by Tiberiu Ichim, vibe-coded with Gemini 3 Preview.
 
 ## Links
 
