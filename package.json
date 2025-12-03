@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-typescript-imports",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Prettier plugin (and CLI tool) to automatically format TypeScript imports by separating type imports from value imports.",
   "keywords": [
     "prettier",
