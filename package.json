@@ -1,8 +1,16 @@
 {
   "name": "prettier-plugin-typescript-imports",
   "version": "0.0.1",
-  "description": "A CLI tool (and future Prettier plugin) to separate type imports from value imports in TypeScript files.",
+  "description": "A Prettier plugin (and CLI tool) to automatically format TypeScript imports by separating type imports from value imports.",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "bin": {
     "fix-type-imports": "./dist/cli.js"
   },
@@ -10,6 +18,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "fix-type-imports": "tsx src/cli.ts"
   },
   "dependencies": {
