@@ -1,4 +1,4 @@
-# Prettier Plugin: TypeScript Imports
+# Prettier plugin: Separate Typescript imports
 
 A Prettier plugin (and CLI tool) to automatically format TypeScript imports by separating type imports from value imports.
 
