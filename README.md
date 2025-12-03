@@ -93,6 +93,52 @@ npx fix-type-imports --dir "app"
 npx fix-type-imports --check-usage
 ```
 
+## Grouping the imports
+
+This plugin only separates type imports from value imports. To group and sort your imports, we recommend using [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) with the following configuration:
+
+```js
+// eslint.config.mjs
+import importPlugin from "eslint-plugin-import";
+
+export default [
+  {
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling"],
+            "index",
+            "object",
+            "type",
+          ],
+          "newlines-between": "always",
+          pathGroups: [
+            {
+              pattern: "@/**",
+              group: "internal",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin", "type"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
+    },
+  },
+];
+```
+
 ## Development
 
 1. Clone the repository.
